@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmleborckegad"]
+
+[ext_resource type="Script" path="res://background.gd" id="1_6pv41"]
+[ext_resource type="Script" path="res://game.gd" id="1_irbwu"]
+[ext_resource type="PackedScene" uid="uid://05kd8f3dgl6x" path="res://player.tscn" id="1_w3cas"]
+[ext_resource type="Script" path="res://joystick.gd" id="2_ddyvy"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_irbwu")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("1_6pv41")
+
+[node name="Player" parent="." instance=ExtResource("1_w3cas")]
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Joystick" type="Control" parent="UI"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 500.0
+offset_right = 350.0
+offset_bottom = 700.0
+script = ExtResource("2_ddyvy")
